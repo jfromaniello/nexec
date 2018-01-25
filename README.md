@@ -12,6 +12,7 @@ npm i -g nexec
 nexec <script-name>
 ```
 
+You can then send signals to the nexec PID.
 
 ## License
 
