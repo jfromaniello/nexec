@@ -1,0 +1,46 @@
+#!/usr/bin/env node
+
+const spawn = require('child_process').spawn;
+
+const fs = require('fs');
+const script_name = process.argv[2];
+
+if (!script_name) {
+  console.error('missing script name');
+  return process.exit(1);
+}
+
+if (!fs.existsSync('package.json')) {
+  console.error('Missing package.json');
+  return process.exit(1);
+}
+
+const scripts = JSON.parse(fs.readFileSync('package.json', 'utf8')).scripts;
+
+const script = scripts[script_name];
+
+if (!script) {
+  console.error('package.json does not contain an script called ' + script_name);
+  return process.exit(1);
+}
+
+
+const child = spawn('/bin/bash', ['-c', script], {
+  stdio: 'inherit',
+  env: Object.assign({}, process.env, {
+    PATH: process.cwd() + '/node_modules/.bin,' + process.env.PATH
+  })
+});
+
+
+function bypassSignal(signal) {
+  process.on(signal, () => child.kill(signal));
+}
+
+[ 'SIGUSR1',
+  'SIGUSR2',
+  'SIGHUP',
+  'SIGTERM',
+  'SIGINT',
+  'SIGPIPE',
+  'SIGWINCH' ].forEach(bypassSignal);

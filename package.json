@@ -1,0 +1,15 @@
+{
+  "name": "npm-exec",
+  "version": "1.0.0",
+  "description": "Execute scripts from package.json and forward signals.",
+  "bin": {
+    "npm-exec": "./bin/npm-exec",
+    "ne": "./bin/npm-exec"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "José F. Romaniello <jfromaniello@gmail.com> (http://joseoncode.com)",
+  "license": "MIT",
+  "dependencies": {}
+}
