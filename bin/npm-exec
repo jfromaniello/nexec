@@ -40,8 +40,10 @@ const child = spawn('/bin/sh', ['-c', args] , {
 });
 
 function bypassSignal(signal) {
-  debug('got signal: %s', signal);
-  process.on(signal, () => child.kill(signal));
+  process.on(signal, () => {
+    debug('got signal: %s', signal);
+    child.kill(signal);
+  });
 }
 
 [ 'SIGUSR1',
