@@ -1,6 +1,6 @@
 {
   "name": "nexec",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Execute scripts from package.json and forward signals.",
   "bin": "./bin/nexec",
   "scripts": {
