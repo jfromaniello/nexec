@@ -12,5 +12,7 @@
     "type": "git",
     "url": "https://github.com/jfromaniello/nexec.git"
   },
-  "dependencies": {}
+  "dependencies": {
+    "debug": "^3.1.0"
+  }
 }

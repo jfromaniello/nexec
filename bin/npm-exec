@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const debug = require('debug')('nexec');
 const spawn = require('child_process').spawn;
 
 const fs = require('fs');
@@ -24,14 +25,13 @@ if (!script) {
   return process.exit(1);
 }
 
-
 const ddIndex = process.argv.indexOf('--');
 
 const args = [script].concat(process.argv.filter((arg, index) => {
   return index > ddIndex && ddIndex !== -1;
 })).join(' ');
 
-
+debug('running: %s', args);
 const child = spawn('/bin/sh', ['-c', args] , {
   stdio: 'inherit',
   env: Object.assign({}, process.env, {
@@ -39,8 +39,8 @@ const child = spawn('/bin/sh', ['-c', args] , {
   })
 });
 
-
 function bypassSignal(signal) {
+  debug('got signal: %s', signal);
   process.on(signal, () => child.kill(signal));
 }
 
