@@ -1,6 +1,6 @@
 {
   "name": "nexec",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Execute scripts from package.json and forward signals.",
   "bin": "./bin/npm-exec",
   "scripts": {
@@ -8,9 +8,9 @@
   },
   "author": "José F. Romaniello <jfromaniello@gmail.com> (http://joseoncode.com)",
   "license": "MIT",
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/jfromaniello/nexec.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jfromaniello/nexec.git"
   },
   "dependencies": {}
 }
