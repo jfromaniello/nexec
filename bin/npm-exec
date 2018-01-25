@@ -25,10 +25,17 @@ if (!script) {
 }
 
 
-const child = spawn('/bin/bash', ['-c', script], {
+const ddIndex = process.argv.indexOf('--');
+
+const args = [script].concat(process.argv.filter((arg, index) => {
+  return index > ddIndex && ddIndex !== -1;
+})).join(' ');
+
+
+const child = spawn('/bin/sh', ['-c', args] , {
   stdio: 'inherit',
   env: Object.assign({}, process.env, {
-    PATH: process.cwd() + '/node_modules/.bin,' + process.env.PATH
+    PATH: process.cwd() + '/node_modules/.bin:' + process.env.PATH
   })
 });
 
