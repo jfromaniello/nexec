@@ -2,7 +2,7 @@
   "name": "nexec",
   "version": "1.2.1",
   "description": "Execute scripts from package.json and forward signals.",
-  "bin": "./bin/npm-exec",
+  "bin": "./bin/nexec",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

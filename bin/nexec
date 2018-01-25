@@ -32,7 +32,7 @@ const args = [script].concat(process.argv.filter((arg, index) => {
 })).join(' ');
 
 debug('running: %s', args);
-const child = spawn('/bin/sh', ['-c', args] , {
+const child = spawn('/bin/bash', ['-c', args] , {
   stdio: 'inherit',
   env: Object.assign({}, process.env, {
     PATH: process.cwd() + '/node_modules/.bin:' + process.env.PATH
