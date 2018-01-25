@@ -3,13 +3,13 @@ Run scripts declared on package.json as you will normally do with `npm run <scri
 ## Installation
 
 ```
-npm i -g npm-exec
+npm i -g nexec
 ```
 
 ## Usage
 
 ```
-npm-exec <script-name>
+nexec <script-name>
 ```
 
 
